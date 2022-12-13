@@ -41,7 +41,7 @@ function App() {
               id="firstName"
               name="firstName"
               value={values.firstName}
-              type="name"
+              type="text"
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="Name"
