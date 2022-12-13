@@ -22,6 +22,7 @@ function App() {
 
         onSubmit={async (values) => {
           values && postData(values)
+          console.log("🚀 ~ file: App.js:25 ~ onSubmit={ ~ values", values)
           console.log(values)
         }}
       >
