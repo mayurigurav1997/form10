@@ -55,7 +55,9 @@ function App() {
               onBlur={handleBlur}
               placeholder="Name"
             />
-            <p style={{ color: "red" }}>{errors.firstName}</p>
+            <p style={{ color: "red" }}>
+              {errors.firstName && touched.firstName && errors.firstName}
+            </p>
             <br /><br /><br />
 
             <label htmlFor="email">Email</label>
@@ -68,7 +70,10 @@ function App() {
               onBlur={handleBlur}
               placeholder="Email"
             />
-            {/* {errors.password && touched.password && errors.password} */}
+            <p style={{ color: "red" }}>
+              {errors.email && touched.email && errors.email}
+            </p>
+
             <button type="submit">
               Submit
             </button>
