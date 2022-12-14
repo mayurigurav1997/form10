@@ -25,11 +25,11 @@ function App() {
       <Formik
         initialValues={values}
         validationSchema={validationSchema}
-        onSubmit={async (values) => {
+        onSubmit={async (values, action) => {
           values && postData(values)
           // Ctrl + Alt + L
           console.log("🚀 ~ file: App.js:25 ~ onSubmit={ ~ values", values)
-
+          action.resetForm();
 
         }}
       >
