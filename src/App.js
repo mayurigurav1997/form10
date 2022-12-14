@@ -24,12 +24,13 @@ function App() {
     <div className="App">
       <Formik
         initialValues={values}
-
+        validationSchema={validationSchema}
         onSubmit={async (values) => {
           values && postData(values)
           // Ctrl + Alt + L
           console.log("🚀 ~ file: App.js:25 ~ onSubmit={ ~ values", values)
-          console.log(values)
+
+
         }}
       >
         {({
@@ -42,6 +43,7 @@ function App() {
           isSubmitting,
           /* and other goodies */
         }) => (
+
           <form onSubmit={handleSubmit}>
             <label htmlFor="firstName">Name</label>
             <input
@@ -53,8 +55,9 @@ function App() {
               onBlur={handleBlur}
               placeholder="Name"
             />
-            {/* {errors.email && touched.email && errors.email} */}
+            <p style={{ color: "red" }}>{errors.firstName}</p>
             <br /><br /><br />
+
             <label htmlFor="email">Email</label>
             <input
               id="email"
