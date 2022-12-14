@@ -1,9 +1,14 @@
 import './App.css';
 import { Formik } from 'formik';
 import { useState } from "react";
+import * as Yup from 'yup';
 
 function App() {
+  const validationSchema = Yup.object({
+    firstName: Yup.string().min(4).max(15).required("Please enter your name"),
+    email: Yup.string().email().required("Please enter your email")
 
+  })
   const [values, setValues] = useState({
     firstName: "",
     email: ""
@@ -22,6 +27,7 @@ function App() {
 
         onSubmit={async (values) => {
           values && postData(values)
+          // Ctrl + Alt + L
           console.log("🚀 ~ file: App.js:25 ~ onSubmit={ ~ values", values)
           console.log(values)
         }}
