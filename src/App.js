@@ -2,6 +2,7 @@ import './App.css';
 import { Formik } from 'formik';
 import { useState } from "react";
 import * as Yup from 'yup';
+import { InputText } from 'primereact/inputtext';
 
 function App() {
   const validationSchema = Yup.object({
@@ -11,12 +12,19 @@ function App() {
   })
   const [values, setValues] = useState({
     firstName: "",
+    middleName: "",
+    lastName: "",
+    suffix: "",
     email: ""
   });
   function postData(agentValues) {
     setValues({
       firstName: agentValues.firstName,
-      email: agentValues.email
+      middleName: agentValues.middleName,
+      lastName: agentValues.lastName,
+      suffix: agentValues.suffix,
+      email: agentValues.email,
+
     });
   };
 
@@ -45,35 +53,39 @@ function App() {
         }) => (
 
           <form onSubmit={handleSubmit}>
-            <label htmlFor="firstName">Name</label>
-            <input
-              id="firstName"
-              name="firstName"
-              value={values.firstName}
-              type="text"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Name"
-            />
-            {errors.firstName && touched.firstName &&
-              <p style={{ color: "red" }}>{errors.firstName}</p>
-            }
+            <div className="flex flex-column ml-8 mb-5 w-20rem">
+              <label htmlFor="firstName" className="text-left mb-2">First Name</label>
+              <InputText
+                id="firstName"
+                name="firstName"
+                value={values.firstName}
+                type="text"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="firstName"
+                className="w-10rem p-inputtext-sm p-1" />
+              {errors.firstName && touched.firstName &&
+                <small className="text-xs text-red-500">{errors.firstName}</small>
+              }
+            </div>
 
-            <br /><br /><br />
+            <br />
 
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              value={values.email}
-              type="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Email"
-            />
-            {errors.email && touched.email &&
-              <p style={{ color: "red" }}>{errors.email}</p>
-            }
+            <div>
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                value={values.email}
+                type="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Email"
+              />
+              {errors.email && touched.email &&
+                <span className="text-xs">{errors.email}</span>
+              }
+            </div>
 
             <button type="submit">
               Submit
