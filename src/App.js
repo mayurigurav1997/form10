@@ -63,7 +63,7 @@ function App() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="firstName"
-                className="w-10rem p-1 outline-none" />
+                className="w-12rem outline-none p-inputtext-sm" />
               {errors.firstName && touched.firstName &&
                 <small className="text-xs p-error block">{errors.firstName}</small>
               }
@@ -71,22 +71,21 @@ function App() {
 
             <br />
 
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
+            <div className="flex flex-column ml-8 mb-5 w-20rem">
+              <label htmlFor="email" className="text-left mb-2">Email</label>
+              <InputText
                 id="email"
                 name="email"
                 value={values.email}
                 type="email"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Email"
-              />
+                placeholder="email"
+                className="w-10rem p-1 outline-none" />
               {errors.email && touched.email &&
-                <span className="text-xs">{errors.email}</span>
+                <small className="text-xs p-error block">{errors.email}</small>
               }
             </div>
-
             <button type="submit">
               Submit
             </button>
