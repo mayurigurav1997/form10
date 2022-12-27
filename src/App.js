@@ -63,7 +63,7 @@ function App() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="firstName"
-                className="w-14rem outline-none p-inputtext-sm" />
+                className="w-14rem outline-none p-inputtext-sm mb-1" />
               {errors.firstName && touched.firstName &&
                 <small className="text-xs p-error block">{errors.firstName}</small>
               }
