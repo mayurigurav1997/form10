@@ -55,9 +55,10 @@ function App() {
               onBlur={handleBlur}
               placeholder="Name"
             />
-            <p style={{ color: "red" }}>
-              {errors.firstName && touched.firstName && errors.firstName}
-            </p>
+            {errors.firstName && touched.firstName &&
+              <p style={{ color: "red" }}>{errors.firstName}</p>
+            }
+
             <br /><br /><br />
 
             <label htmlFor="email">Email</label>
@@ -70,9 +71,9 @@ function App() {
               onBlur={handleBlur}
               placeholder="Email"
             />
-            <p style={{ color: "red" }}>
-              {errors.email && touched.email && errors.email}
-            </p>
+            {errors.email && touched.email &&
+              <p style={{ color: "red" }}>{errors.email}</p>
+            }
 
             <button type="submit">
               Submit
@@ -80,7 +81,7 @@ function App() {
           </form>
         )}
       </Formik>
-    </div>
+    </div >
   );
 }
 
