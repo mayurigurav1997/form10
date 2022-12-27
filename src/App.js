@@ -63,9 +63,9 @@ function App() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="firstName"
-                className="w-10rem p-inputtext-sm p-1" />
+                className="w-10rem p-1 outline-none" />
               {errors.firstName && touched.firstName &&
-                <small className="text-xs text-red-500">{errors.firstName}</small>
+                <small className="text-xs p-error block">{errors.firstName}</small>
               }
             </div>
 
