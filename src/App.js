@@ -53,7 +53,7 @@ function App() {
         }) => (
 
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-column ml-8 mb-5 w-20rem">
+            <div className="flex flex-column ml-8 mb-3 w-20rem">
               <label htmlFor="firstName" className="text-left mb-2">First Name</label>
               <InputText
                 id="firstName"
@@ -63,7 +63,7 @@ function App() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="firstName"
-                className="w-12rem outline-none p-inputtext-sm" />
+                className="w-14rem outline-none p-inputtext-sm" />
               {errors.firstName && touched.firstName &&
                 <small className="text-xs p-error block">{errors.firstName}</small>
               }

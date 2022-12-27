@@ -2,8 +2,8 @@
   color: red;
 }
 .p-inputtext-sm .p-inputtext {
-  font-size: 0.875em;
-  padding: 0.4375em 0.4375em;
+  font-size: 0.875rem;
+  padding: 0.4375rem 0.4375rem;
 }
 .p-inputtext {
   font-size: 0.875rem;
@@ -13,6 +13,10 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .p-inputtext:enabled:focus {
   outline: 0 none;
@@ -20,3 +24,6 @@
   box-shadow: 0 0 0 0.2rem #a6d5fa;
   border-color: #2196f3;
 }
+/* .p-inputtext:enabled:hover {
+  border-color: #2196f3;
+} */
