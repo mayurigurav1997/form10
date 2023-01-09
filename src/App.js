@@ -7,7 +7,7 @@ import { InputText } from 'primereact/inputtext';
 function App() {
   const validationSchema = Yup.object({
     firstName: Yup.string().min(4).max(15).required("Please enter your name"),
-    email: Yup.string().email().required("Please enter your email")
+    // email: Yup.string().email().required("Please enter your email")
 
   })
   const [values, setValues] = useState({
@@ -37,7 +37,7 @@ function App() {
           values && postData(values)
           // Ctrl + Alt + L
           console.log("🚀 ~ file: App.js:25 ~ onSubmit={ ~ values", values)
-          action.resetForm();
+          action.resetForm();  //it will clear all the fiels value input once we submit
 
         }}
       >
@@ -71,21 +71,23 @@ function App() {
 
             <br />
 
-            <div className="flex flex-column ml-8 mb-5 w-20rem">
-              <label htmlFor="email" className="text-left mb-2">Email</label>
+            <div className="flex flex-column ml-8 mb-3 w-20rem">
+              <label htmlFor="middleName" className="text-left mb-2">Middle Name</label>
               <InputText
-                id="email"
-                name="email"
-                value={values.email}
-                type="email"
+                id="middleName"
+                name="middleName"
+                value={values.middleName}
+                type="text"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="email"
-                className="w-10rem p-1 outline-none" />
-              {errors.email && touched.email &&
-                <small className="text-xs p-error block">{errors.email}</small>
+                placeholder="middleName"
+                className="w-14rem outline-none p-inputtext-sm mb-1" />
+              {errors.middleName && touched.middleName &&
+                <small className="text-xs p-error block">{errors.middleName}</small>
               }
             </div>
+
+
             <button type="submit">
               Submit
             </button>
