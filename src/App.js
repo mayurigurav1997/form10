@@ -6,8 +6,9 @@ import { InputText } from 'primereact/inputtext';
 
 function App() {
   const validationSchema = Yup.object({
-    firstName: Yup.string().min(4).max(15).required("Please enter your name"),
-    // email: Yup.string().email().required("Please enter your email")
+    firstName: Yup.string().max(10).required("Please enter your First Name"),
+    lastName: Yup.string().max(10).required("Please enter your Last Name"),
+    email: Yup.string().email().required("Please enter your email"),
 
   })
   const [values, setValues] = useState({
@@ -53,7 +54,7 @@ function App() {
         }) => (
 
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-column ml-8 mb-3 w-20rem">
+            <div className="flex flex-column ml-8 mb-4 w-20rem">
               <label htmlFor="firstName" className="text-left mb-2">First Name</label>
               <InputText
                 id="firstName"
@@ -69,9 +70,7 @@ function App() {
               }
             </div>
 
-            <br />
-
-            <div className="flex flex-column ml-8 mb-3 w-20rem">
+            <div className="flex flex-column ml-8 mb-4 w-20rem">
               <label htmlFor="middleName" className="text-left mb-2">Middle Name</label>
               <InputText
                 id="middleName"
@@ -82,11 +81,39 @@ function App() {
                 onBlur={handleBlur}
                 placeholder="middleName"
                 className="w-14rem outline-none p-inputtext-sm mb-1" />
-              {errors.middleName && touched.middleName &&
-                <small className="text-xs p-error block">{errors.middleName}</small>
+            </div>
+
+            <div className="flex flex-column ml-8 mb-4 w-20rem">
+              <label htmlFor="lastName" className="text-left mb-2">Last Name</label>
+              <InputText
+                id="lastName"
+                name="lastName"
+                value={values.lastName}
+                type="text"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="lastName"
+                className="w-14rem outline-none p-inputtext-sm mb-1" />
+              {errors.lastName && touched.lastName &&
+                <small className="text-xs p-error block">{errors.lastName}</small>
               }
             </div>
 
+            <div className="flex flex-column ml-8 mb-4 w-20rem">
+              <label htmlFor="email" className="text-left mb-2">Email</label>
+              <InputText
+                id="email"
+                name="email"
+                value={values.email}
+                type="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="email"
+                className="w-14rem outline-none p-inputtext-sm mb-1" />
+              {errors.email && touched.email &&
+                <small className="text-xs p-error block">{errors.email}</small>
+              }
+            </div>
 
             <button type="submit">
               Submit
