@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as Yup from 'yup';
 import { InputText } from 'primereact/inputtext';
 
-function Admin() {
+function Addadmin() {
     const validationSchema = Yup.object({
         firstName: Yup.string().max(10).required("Please enter your First Name"),
         lastName: Yup.string().max(10).required("Please enter your Last Name"),
@@ -36,7 +36,7 @@ function Admin() {
                 onSubmit={async (values, action) => {
                     values && postData(values)
                     // Ctrl + Alt + L
-                    console.log("🚀 ~ file: Admin.js:25 ~ onSubmit={ ~ values", values)
+                    console.log("🚀 ~ file: Addadmin.js:25 ~ onSubmit={ ~ values", values)
                     action.resetForm();  //it will clear all the fiels value input once we submit
 
                 }}
@@ -137,4 +137,4 @@ function Admin() {
     );
 }
 
-export default Admin;
+export default Addadmin;

@@ -1,5 +1,5 @@
 import './Global.css';
-import Admin from './Admin/Admin'
+import Admin from './Addadmin/Addadmin'
 
 function App() {
 
