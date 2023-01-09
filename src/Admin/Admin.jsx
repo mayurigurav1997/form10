@@ -54,7 +54,7 @@ function Admin() {
 
                     <form onSubmit={handleSubmit}>
                         <div className="flex flex-column ml-8 mb-4 w-20rem">
-                            <label htmlFor="firstName" className="text-left mb-2">First Name</label>
+                            <label htmlFor="firstName" className="text-left mb-2">FIRST NAME</label>
                             <InputText
                                 id="firstName"
                                 name="firstName"
@@ -62,7 +62,7 @@ function Admin() {
                                 type="text"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                placeholder="firstName"
+                                placeholder="First Name"
                                 className="w-14rem outline-none p-inputtext-sm mb-1" />
                             {errors.firstName && touched.firstName &&
                                 <small className="text-xs p-error block">{errors.firstName}</small>
@@ -70,7 +70,7 @@ function Admin() {
                         </div>
 
                         <div className="flex flex-column ml-8 mb-4 w-20rem">
-                            <label htmlFor="middleName" className="text-left mb-2">Middle Name</label>
+                            <label htmlFor="middleName" className="text-left mb-2">MIDDLE NAME</label>
                             <InputText
                                 id="middleName"
                                 name="middleName"
@@ -78,12 +78,12 @@ function Admin() {
                                 type="text"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                placeholder="middleName"
+                                placeholder="Middle Name"
                                 className="w-14rem outline-none p-inputtext-sm mb-1" />
                         </div>
 
                         <div className="flex flex-column ml-8 mb-4 w-20rem">
-                            <label htmlFor="lastName" className="text-left mb-2">Last Name</label>
+                            <label htmlFor="lastName" className="text-left mb-2">LAST NAME</label>
                             <InputText
                                 id="lastName"
                                 name="lastName"
@@ -91,7 +91,7 @@ function Admin() {
                                 type="text"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                placeholder="lastName"
+                                placeholder="Last Name"
                                 className="w-14rem outline-none p-inputtext-sm mb-1" />
                             {errors.lastName && touched.lastName &&
                                 <small className="text-xs p-error block">{errors.lastName}</small>
@@ -99,7 +99,20 @@ function Admin() {
                         </div>
 
                         <div className="flex flex-column ml-8 mb-4 w-20rem">
-                            <label htmlFor="email" className="text-left mb-2">Email</label>
+                            <label htmlFor="suffix" className="text-left mb-2">SUFFIX</label>
+                            <InputText
+                                id="suffix"
+                                name="suffix"
+                                value={values.suffix}
+                                type="text"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder="Suffix"
+                                className="w-14rem outline-none p-inputtext-sm mb-1" />
+                        </div>
+
+                        <div className="flex flex-column ml-8 mb-4 w-20rem">
+                            <label htmlFor="email" className="text-left mb-2">EMAIL</label>
                             <InputText
                                 id="email"
                                 name="email"
@@ -107,7 +120,7 @@ function Admin() {
                                 type="email"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                placeholder="email"
+                                placeholder="Email"
                                 className="w-14rem outline-none p-inputtext-sm mb-1" />
                             {errors.email && touched.email &&
                                 <small className="text-xs p-error block">{errors.email}</small>
