@@ -19,16 +19,15 @@ export const adminSlice = createSlice({
             state.isLoading = "Rejected";
             state.isError = action.error.message
         });
-        builder.addCase(getAdminData.fullfilled, (state, action) => {
+        builder.addCase(getAdminData.fulfilled, (state, action) => {
             state.isLoading = "Completed";
-            state.adminData = action.payload.data;
+            state.adminData = action.payload;
         });
-
     }
 });
 
 export const getAdminData = createAsyncThunk(
-    "getAdmin",
+    "getAdminData",
     async () => {
         let result = await fetch("https://63bd6320d660062388a3e9ef.mockapi.io/Admin",
             {

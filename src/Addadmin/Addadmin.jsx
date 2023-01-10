@@ -7,6 +7,7 @@ import { getAdminData } from "../Feature/Admin/AdminSlice"
 
 function Addadmin() {
     const dispatch = useDispatch();
+    const admin = useSelector((state) => state.admin);
     const validationSchema = Yup.object({
         firstName: Yup.string().max(10).required("Please enter your First Name"),
         lastName: Yup.string().max(10).required("Please enter your Last Name"),
@@ -27,10 +28,13 @@ function Addadmin() {
             suffix: agentValues.suffix,
             email: agentValues.email,
         });
+
     };
 
     useEffect(() => {
         dispatch(getAdminData());
+        console.log(admin);
+
     }, [])
 
     return (

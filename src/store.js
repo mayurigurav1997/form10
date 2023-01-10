@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { adminReducer } from './Feature/Admin/AdminSlice';
 
 const rootReducer = combineReducers({
@@ -7,4 +7,11 @@ const rootReducer = combineReducers({
 
 export default configureStore({
     reducer: rootReducer,
+    // middleware: (getDefaultMiddleware) => {
+    //     getDefaultMiddleware({
+    //         serializableCheck: false,
+    //         imutableCheck: true
+    //     })
+    // }
+
 })
