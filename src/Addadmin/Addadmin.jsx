@@ -1,14 +1,16 @@
 import { Formik } from 'formik';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from 'yup';
 import { InputText } from 'primereact/inputtext';
+import { useSelector, useDispatch } from "react-redux";
+import { getAdminData } from "../Feature/Admin/AdminSlice"
 
 function Addadmin() {
+    const dispatch = useDispatch();
     const validationSchema = Yup.object({
         firstName: Yup.string().max(10).required("Please enter your First Name"),
         lastName: Yup.string().max(10).required("Please enter your Last Name"),
         email: Yup.string().email().required("Please enter your email"),
-
     })
     const [values, setValues] = useState({
         firstName: "",
@@ -24,9 +26,12 @@ function Addadmin() {
             lastName: agentValues.lastName,
             suffix: agentValues.suffix,
             email: agentValues.email,
-
         });
     };
+
+    useEffect(() => {
+        dispatch(getAdminData());
+    }, [])
 
     return (
         <div className="Global">

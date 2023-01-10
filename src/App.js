@@ -6,9 +6,11 @@ import { Provider } from "react-redux";
 function App() {
 
   return (
-    <Provider store={store}>
-      <Admin />
-    </Provider>
+    <>
+      <Provider store={store}>
+        <Admin />
+      </Provider>
+    </>
   );
 }
 

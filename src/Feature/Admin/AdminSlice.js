@@ -30,7 +30,7 @@ export const adminSlice = createSlice({
 export const getAdminData = createAsyncThunk(
     "getAdmin",
     async () => {
-        let result = await fetch("",
+        let result = await fetch("https://63bd6320d660062388a3e9ef.mockapi.io/Admin",
             {
                 method: "GET",
                 headers: {
