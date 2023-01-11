@@ -4,10 +4,13 @@ import * as Yup from 'yup';
 import { InputText } from 'primereact/inputtext';
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminData } from "../Feature/Admin/AdminSlice"
+import Admindetails from "../Admindetails/Admindetails"
 
 function Addadmin() {
     const dispatch = useDispatch();
     const admin = useSelector((state) => state.admin);
+    const [edit, setEdit] = useState(false)
+
     const validationSchema = Yup.object({
         firstName: Yup.string().max(10).required("Please enter your First Name"),
         lastName: Yup.string().max(10).required("Please enter your Last Name"),
@@ -28,7 +31,7 @@ function Addadmin() {
             suffix: agentValues.suffix,
             email: agentValues.email,
         });
-
+        setEdit(true);
     };
 
     useEffect(() => {
@@ -39,7 +42,8 @@ function Addadmin() {
 
     return (
         <div className="Global">
-            <Formik
+            {edit && <Admindetails />}
+            {!edit && <Formik
                 initialValues={values}
                 validationSchema={validationSchema}
                 onSubmit={async (values, action) => {
@@ -136,12 +140,13 @@ function Addadmin() {
                             }
                         </div>
 
-                        <button type="submit">
+                        <button type="submit" className="ml-8">
                             Submit
                         </button>
                     </form>
                 )}
             </Formik>
+            }
         </div >
     );
 }
