@@ -42,7 +42,7 @@ function Addadmin() {
 
     return (
         <div className="Global">
-            {edit && <Admindetails />}
+            {edit && <Admindetails agentData={values} />}
             {!edit && <Formik
                 initialValues={values}
                 validationSchema={validationSchema}

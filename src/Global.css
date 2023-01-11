@@ -27,3 +27,17 @@
 /* .p-inputtext:enabled:hover {
   border-color: #2196f3;
 } */
+
+.agent-details {
+  margin: 28px 80px 30px 58px;
+}
+.agent-details p {
+  font: normal normal bold 16px/16px Open Sans;
+  margin-bottom: 6px;
+  color: #393f41;
+}
+.agent-details span {
+  color: #707070;
+  font: normal normal normal 15px/20px Open Sans;
+  letter-spacing: 0.6px;
+}
