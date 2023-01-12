@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const authState = {
+    isLoading: false,
     isError: "",
-    isLoading: "",
-    adminData: []
-
+    isEditFlag: false,
+    postCallStatus: "Not Completed",
+    adminData: [],
+    dataAfterPost: {}
 }
 export const adminSlice = createSlice({
     name: "admin",
@@ -12,6 +14,20 @@ export const adminSlice = createSlice({
     reducers: {
     },
     extraReducers: (builder) => {
+        builder.addCase(postAdminData.pending, (state, action) => {
+            state.isLoading = true
+        });
+        builder.addCase(postAdminData.rejected, (state, action) => {
+            state.isLoading = "Rejected";
+            state.isError = action.error.message;
+        });
+        builder.addCase(postAdminData.fulfilled, (state, action) => {
+            state.isLoading = "Completed";
+            state.postCallStatus = "Completed";
+            state.isEditFlag = true;
+            state.dataAfterPost = action.payload;
+            console.log(action, "action");
+        })
         builder.addCase(getAdminData.pending, (state, action) => {
             state.isLoading = "Pending";
         });
@@ -26,6 +42,27 @@ export const adminSlice = createSlice({
     }
 });
 
+export const postAdminData = createAsyncThunk(
+    "postAdminData",
+    async (params) => {
+        let result = fetch("https://63bd6320d660062388a3e9ef.mockapi.io/Admin",
+            {
+                method: "POST",
+                body: JSON.stringify(params.data),
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "Accept-Encoding":
+                        "gzip" | "compress" | "deflate" | "br" | "identity" | "*",
+                },
+            }
+        )
+            .then((response) => response.json())
+            .then((data) => data.json())
+            .then((error) => error)
+        return result;
+    }
+)
 export const getAdminData = createAsyncThunk(
     "getAdminData",
     async () => {

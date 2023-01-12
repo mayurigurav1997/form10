@@ -11,6 +11,10 @@ function Addadmin() {
     const admin = useSelector((state) => state.admin);
     const [edit, setEdit] = useState(false)
 
+    const scrollToTop = () => {
+        window.scroll(0, 0);
+    }
+
     const validationSchema = Yup.object({
         firstName: Yup.string().max(10).required("Please enter your First Name"),
         lastName: Yup.string().max(10).required("Please enter your Last Name"),
@@ -42,12 +46,13 @@ function Addadmin() {
 
     return (
         <div className="Global">
-            {edit && <Admindetails agentData={values} />}
+            {edit && <Admindetails agentData={values} isEdit={edit} />}
             {!edit && <Formik
                 initialValues={values}
                 validationSchema={validationSchema}
                 onSubmit={async (values, action) => {
                     values && postData(values)
+                    scrollToTop();
                     // Ctrl + Alt + L
                     console.log("🚀 ~ file: Addadmin.js:25 ~ onSubmit={ ~ values", values)
                     action.resetForm();  //it will clear all the fiels value input once we submit

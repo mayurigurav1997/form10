@@ -28,7 +28,9 @@ function Admindetails(props) {
                 <p>EMAIL</p>
                 <span>{agentData.email}</span>
             </div>
-        </div >
+            {/* <button>Edit</button> */}
+        </div>
+
     );
 }
 
