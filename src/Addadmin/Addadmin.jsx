@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import * as Yup from 'yup';
 import { InputText } from 'primereact/inputtext';
 import { useSelector, useDispatch } from "react-redux";
-import { getAdminData } from "../Feature/Admin/AdminSlice"
-import Admindetails from "../Admindetails/Admindetails"
+import {
+    getAdminData,
+    postAdminData
+} from "../Feature/Admin/AdminSlice";
+import Admindetails from "../Admindetails/Admindetails";
 
 function Addadmin() {
     const dispatch = useDispatch();
@@ -36,13 +39,17 @@ function Addadmin() {
             email: agentValues.email,
         });
         setEdit(true);
+        if (admin.postCallStatus === "Not Completed") {
+            console.log(agentValues, "agentValues");
+            dispatch(postAdminData({ data: agentValues }));
+        }
     };
 
-    useEffect(() => {
-        dispatch(getAdminData());
-        console.log(admin);
+    // useEffect(() => {
+    //     dispatch(getAdminData());
+    //     console.log(admin);
 
-    }, [])
+    // }, [])
 
     return (
         <div className="Global">
